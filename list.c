@@ -46,7 +46,8 @@ void list_expand( List * L, int new_size ) {
 
 void list_reduce(List * L) {
     if (L->n < L->size) {
-        list_expand(L, L->n);
+        L->e = (int*) realloc(L->e, sizeof(int)*L->n);
+        L->size = L->n;
     }
 }
 
